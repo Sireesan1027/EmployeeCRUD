@@ -46,5 +46,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     }
 
+    @Override
+    public Employee fatchEmployeeListByName(Employee employeeName) {
+        return employeeRepository.findByEmpName(employeeName);
+    }
+
 
 }

@@ -16,4 +16,6 @@ public interface EmployeeService {
 
 
     Employee updateEmployeeById(long employeeId, Employee employee);
+
+    Employee fatchEmployeeListByName(Employee employeeName);
 }
