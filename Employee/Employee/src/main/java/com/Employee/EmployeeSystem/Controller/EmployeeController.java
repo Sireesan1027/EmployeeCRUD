@@ -41,9 +41,9 @@ public class EmployeeController {
        return employeeService.updateEmployeeById(employeeId,employee);
      }
 
-
+     //Implement fatchEmployeeListByName
      @GetMapping("/Employee/name/{name}")
-     public Employee fetchEmployeeListById(@PathVariable("name") Employee employeeName){
+     public Employee fetchEmployeeListById(@PathVariable("name") String employeeName){
      return employeeService.fatchEmployeeListByName(employeeName);
      }
 }

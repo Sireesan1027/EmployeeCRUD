@@ -15,7 +15,7 @@ public interface EmployeeService {
     public void deleteEmployeeById(long employeeId);
 
 
-    Employee updateEmployeeById(long employeeId, Employee employee);
+   public Employee updateEmployeeById(long employeeId, Employee employee);
 
-    Employee fatchEmployeeListByName(Employee employeeName);
+   public Employee fatchEmployeeListByName(String employeeName);
 }
