@@ -1,5 +1,6 @@
 package com.Employee.EmployeeSystem.Controller;
 
+import com.Employee.EmployeeSystem.Error.EmployeeFoundException;
 import com.Employee.EmployeeSystem.entity.Employee;
 import com.Employee.EmployeeSystem.service.EmployeeServiceImpl;
 import jakarta.validation.Valid;
@@ -35,7 +36,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/Employee/{id}")
-    public List<Employee>fetchEmployeeListById(@PathVariable("id") long employeeId){
+    public List<Employee>fetchEmployeeListById(@PathVariable("id") long employeeId) throws EmployeeFoundException {
      LOGGER.info("Inside fetchEmployeeListById of Employee Controller");
     return employeeService.fatchEmployeeListById(employeeId);
  }

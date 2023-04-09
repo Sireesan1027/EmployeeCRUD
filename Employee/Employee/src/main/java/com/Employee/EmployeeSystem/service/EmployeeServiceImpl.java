@@ -1,5 +1,6 @@
 package com.Employee.EmployeeSystem.service;
 
+import com.Employee.EmployeeSystem.Error.EmployeeFoundException;
 import com.Employee.EmployeeSystem.entity.Employee;
 import com.Employee.EmployeeSystem.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -24,8 +26,12 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public List<Employee> fatchEmployeeListById(long employeeId) {
-        return employeeRepository.findAllById(Collections.singletonList(employeeId));
+    public List<Employee> fatchEmployeeListById(long employeeId) throws EmployeeFoundException {
+       Optional<Employee> employee=employeeRepository.findById(employeeId);
+       if(!employee.isPresent()){
+           throw new EmployeeFoundException("Employee Not Found");
+       }
+       return Collections.singletonList(employee.get());
     }
 
     @Override
